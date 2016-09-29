@@ -1,0 +1,59 @@
+
+<h1>
+    {{branchName}}
+</h1>
+<h1>
+    orders
+</h1>
+<div class="box-content box-table">
+    <table id="sample-table" class="table table-hover table-bordered tablesorter" width="100%">
+        <col width="30%">
+        <col width="30%">
+        <col width="20%">
+        <col width="20%">
+        <thead>
+        <tr>
+            <th>order_id</th>
+            <th>order_time</th>
+            <th>waiter</th>
+            <th>past_order</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="order in orders">
+            <td>{{order.order_id }}</td>
+            <td>{{order.order_time | amCalendar }}</td>
+            <td>{{order.employee_name}}</td>
+            <td>{{order.past_order}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>
+    Productos
+</h2>
+<div class="box-content box-table">
+    <table class="table table-hover table-bordered tablesorter" width="100%">
+        <col width="30%">
+        <col width="30%">
+        <col width="20%">
+        <col width="20%">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>order_time</th>
+            <th>waiter</th>
+            <th>past_order</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in branch.items">
+            <td>{{item.item_name }}</td>
+            <td>{{order.order_time | amCalendar }}</td>
+            <td>{{order.employee_name}}</td>
+            <td>{{order.past_order}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

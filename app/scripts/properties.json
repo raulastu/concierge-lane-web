@@ -1,0 +1,11 @@
+{
+	"urlHost": "http://localhost:3000",
+    "urlHost5": "http://hf-backend-dev1.appspot.com",
+    "urlHost22": "http://hf-backend.appspot.com",
+    "urlHost3": "http://192.168.1.33:10080",
+    "urlHost33": "http://192.168.1.33:10080",
+    "urlHost33": "test",
+    "urlHost2":  "http://192.168.1.37:10080", 
+    "kitchenUrl" :"http://localhost:11080",
+    "kitchenUrl2" :"http://kitchen.huahfood.com"
+}

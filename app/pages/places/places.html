@@ -1,0 +1,72 @@
+<div class="box-content box-table">
+    <div class="col col-md-6">
+        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 70%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 15%;">
+            </colgroup>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th style="text-align:center"> name</th>
+                <th style="text-align:center"> Address</th>
+                <th>Creator</th>
+                <th>Pichangas Played</th>
+                <th>Created from</th>
+                <th>Created When</th>
+                <th>show</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="place in places">
+                <td><a href="/user_explorer/{{user.person_id}}">{{place.place_id}}</a></td>
+                <td>{{place.name}}</td>
+                <td>{{place.address}}</td>
+                <td>
+                    <a href="/user_explorer/{{place.creator_id}}">{{place.registrant_name}} {{place.registrant_email}}</a>
+                </td>
+                <td>
+                    <a href="/pichangas?place_id={{place.place_id}}">
+                        {{place.pichangas_played}}
+                    </a>
+                </td>
+                <td>{{place.registration_origin.replace('PichangaMaker/com.pichangamaker.ios.PichangaMaker','pmIOS')}}</td>
+                <td>
+                    <span am-time-ago="place.registration_datetime"></span> | {{place.registration_datetime}}
+                </td>
+                <td class="td-actions" style="text-align:center">
+                    <div class="btn-group btn-group-sm">
+                        <a href="" class="btn btn-small btn-danger" ng-click="deletePlace(place)">
+                            delete
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <input type="checkbox"
+                           ng-model="place.show"
+                            ng-change="fitPlacesInMap()">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <json-formatter json="places" open="1"></json-formatter>
+    </div>
+    <div class="col col-md-6">
+        <ng-map center="current-location" style="height:600px">
+
+            <custom-marker ng-repeat="p in places | filter:{show:true} track by $index "
+                           id="custom-marker-{{$index}}"
+                           position="{{[p.lat,p.lng]}}">
+                <div style="background-color: lightgreen">
+                    {{p.name}}
+                </div>
+            </custom-marker>
+
+        </ng-map>
+    </div>
+
+</div>

@@ -1,0 +1,123 @@
+<style>
+    select {
+      background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline fill='white' points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+      background-color:#3498DB;
+      background-repeat:no-repeat;
+      background-position: right 10px top 15px;
+      background-size: 16px 16px;
+      color:white;
+      padding:8px 10px;
+      width:100%;
+      font-family:arial,tahoma;
+      font-size:16px;
+      font-weight:bold;
+      color:#fff;
+      text-align:center;
+      text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+      border-radius:3px;
+      -webkit-border-radius:3px;
+      -webkit-appearance: none;
+      border:0;
+      outline:0;
+      -webkit-transition:0.3s ease all;
+           -moz-transition:0.3s ease all;
+            -ms-transition:0.3s ease all;
+             -o-transition:0.3s ease all;
+                transition:0.3s ease all;
+    }
+    #blue {
+      background-color:#2980B9;
+    }
+    #blue:hover {
+      background-color:#3498DB;
+    }
+    #green {
+      background-color:#16A085;
+    }
+    #green:hover {
+      background-color:#1ABC9C;
+    }
+    #red {
+      background-color:#C0392B;
+    }
+    #red:hover {
+      background-color:#E74C3C;
+    }
+    select:focus, select:active {
+      border:0;
+      outline:0;
+    }
+</style>
+
+
+<div class="box">
+    <div class="box-header">
+        <i class="icon-star-empty icon-large"></i>
+        <h5>Item</h5>
+    </div>
+    <div id="form-add">
+          <div class="login-form">
+            <div class="col-xs-3">
+                <select id="green" ng-model="NewItem.item_category"
+                        ng-options="dataC.category_name for dataC in Category track by dataC.item_category_id">
+                </select>
+            </div>
+            <div class="col-lg-3"><div class="form-group">
+              <input ng-model="NewItem.item_name" type="text" class="form-control" value="" placeholder="Producto" id="frm-secname" />
+              <label class="login-field-icon fui-list-numbered" for="frm-secname"></label>
+            </div></div>
+            <div class="col-lg-3"><div class="form-group">
+              <input ng-model="NewItem.price" type="text" class="form-control" value="" placeholder="Precio" id="frm-username" />
+              <label class="login-field-icon fui-credit-card" for="frm-username"></label>
+            </div></div>
+            <div class="col-lg-3">
+                <button class="btn btn-primary btn-lg" ng-click="saveItem()">Guardar</button>
+                <button class="btn btn-success" ng-click="cancelEmployee()">Cancelar</button>
+              </div>
+            <br><br>
+          </div>
+       </div>
+    &nbsp;
+    <div class="box-content box-table">
+        <table id="sample-table" class="table table-hover table-bordered tablesorter">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="col-lg-6" style="float:left;top: 8px;">Categor&iacute;a</span>
+                        <div class="col-lg-6">
+                          <input type="text" ng-model="search.category_name" id="frm-search" placeholder="Buscar"  class="form-control input-sm">
+                        </div>
+                    </th>
+                    <th>
+                        <span class="col-lg-6" style="float:left;top: 8px;">Nombre</span>
+                        <div class="col-lg-6">
+                          <input type="text" ng-model="search.item_name" id="frm-search" placeholder="Buscar"  class="form-control input-sm">
+                        </div>
+                    </th>
+                    <th>Precio</th>
+                    <th>En Menu</th>
+                    <th style="text-align:center">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataI in Item | filter:search">
+                    <td>{{dataI.category_name}}</td>
+                    <td>{{dataI.item_name}}</td>
+                    <td>{{dataI.price}}</td>
+                    <td ng-show="dataI.inmenu==1" style="text-align: center"> <span class="label label-success"><i class="fui-check"></i></span> </td>
+                    <td ng-show="dataI.inmenu!=1" style="text-align: center"> <span class="label label-important"><i class="fui-remove-sign"></i></span> </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" ng-click="updItem(dataI)" class="btn btn-small btn-info">
+                                <i class="fui-new"></i>
+                            </a>
+                            <a href="" class="btn btn-small btn-danger" ng-really-message="Desea Eliminar?" ng-really-click="removeItem(dataI)">
+                                <i class="fui-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

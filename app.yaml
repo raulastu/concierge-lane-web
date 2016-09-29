@@ -1,0 +1,58 @@
+application: absolute-hook-5071
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+skip_files:
+- ^node_modules$
+- ^\.idea$
+- ^tools$
+
+handlers:
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /bower_components/(.*)
+  static_files: bower_components/\1
+  upload: bower_components/.*
+
+- url: /properties
+  script: /properties.php
+
+#- url: /console/(.*)
+#  static_files: app/index.html
+#  upload: app/index.html
+
+#DEV config
+
+- url: /(.*\.(gif|png|jpg|css|js|map|woff|ttf|svg|json|eot|html))$
+  static_files: app/\1
+  upload: app/.*\.(gif|png|jpg|css|js|map|woff|ttf|svg|json|eot|html)$
+
+- url: /.*
+  static_files: app/index.html
+  upload: app/index.html
+
+#
+#- url: /(.+)
+#  script: static/\1.html
+#
+#- url: /(.*)
+#  static_files: app/index.html
+#  upload: app/index.html
+#  login: admin
+
+
+##PROD config
+#- url: /(.*\.(gif|png|jpg|css|js|map|woff|ttf|svg|json|eot|html))$
+#  static_files: dist/\1
+#  upload: dist/.*\.(gif|png|jpg|css|js|map|woff|ttf|svg|json|eot|html)$
+#
+#
+#- url: /.*
+#  static_files: dist/index.html
+#  upload: dist/index.html
+#  login: admin

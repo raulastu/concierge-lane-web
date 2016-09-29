@@ -1,0 +1,33 @@
+<h1>
+    Branches
+</h1>
+<div class="box-content box-table">
+    <table id="sample-table" class="table table-hover table-bordered tablesorter" width="100%">
+        <col width="30%">
+        <col width="30%">
+        <col width="20%">
+        <col width="20%">
+        <thead>
+        <tr>
+            <th>branch_id</th>
+            <th>branch_name</th>
+            <th>Stalkear</th>
+            <th>Productos</th>
+            <th>Ordenes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="branch in branches">
+            <td>{{branch.branch_id}}</td>
+            <td>{{branch.branch_name}}</td>
+            <td>
+                <a href="/activity?branch_id={{branch.branch_id}}">
+                    Activity
+                </a>
+            </td>
+            <td>{{branch.item_count}}</td>
+            <td>{{branch.order_count}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

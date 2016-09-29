@@ -1,0 +1,68 @@
+<div class="box-content box-table">
+        <table id="sample-table" class="table table-hover table-bordered tablesorter" width="100%">
+            <!--<col width="30%">-->
+            <!--<col width="30%">-->
+            <!--<col width="20%">-->
+            <!--<col width="20%">-->
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th style="text-align:center"> name</th>
+                    <th style="text-align:center"> owner</th>
+                    <th>member_count</th>
+                    <th>origin</th>
+                    <th>registration_datetime</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="crew in crews">
+                    <td>
+                        <a ng-href="/crews/{{crew.crew_id}}">{{crew.crew_id}}</a>
+                            </td>
+                    <td>{{crew.name}}</td>
+                    <td>
+
+                        <a href="/user_explorer/{{crew.creator_id}}">{{place.registrant_name}} {{place.registrant_email}}</a>
+
+
+                        <a href="/user_explorer/{{crew.owner_id}}">
+                            {{crew.owner_id}} {{crew.owner}}
+                        </a>
+                    </td>
+                    <td>{{crew.member_count}}</td>
+                    <td>{{crew.registration_origin}}</td>
+                    <td>
+                        <span am-time-ago="crew.registration_datetime"></span> | {{crew.registration_datetime}}
+                    </td>
+
+                    <td>
+                        <a href="" ng-click="updEmployee(dataE.employee_id)" class="btn btn-small btn-info">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-danger" ng-click="deleteUser(user)">
+                                delete
+                            </a>
+                        </div>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-success" ng-click="activate(user)">
+                                activate (2)
+                            </a>
+                        </div>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-success" ng-click="sendActivationEmail(user)">
+                                send act mail
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <json-formatter json="crews" open="1"></json-formatter>
+</div>

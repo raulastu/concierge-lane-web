@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="PMConsoleApp" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Console</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="bower_components/json-formatter/dist/json-formatter.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--<style>-->
+      <!--body {-->
+        <!--min-height: 1000px;-->
+        <!--padding-top: 70px;-->
+      <!--}-->
+    <!--</style>-->
+
+
+    <div class="container" style="width:100%; margin-left: 0px;">
+      <div ng-view></div>
+    </div>
+
+    <script src="http://maps.google.com/maps/api/js"></script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+    <script src="bower_components/json-formatter/dist/json-formatter.js"></script>
+    <script src="bower_components/angular-webstorage/angular-webstorage.js"></script>
+    <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <!--<script type="text/javascript" src="bower_components/json-formatter/src/json-formatter.js"></script>-->
+
+
+    <script type="text/javascript" src="/scripts/properties.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- Directives-->
+    <script type="text/javascript" src="/scripts/directives/Directives.js"></script>
+
+    <!-- Services-->
+
+    <!--<script type="text/javascript" src="/scripts/services/sessionsSrv.js"></script>-->
+    <script type="text/javascript" src="/pages/users/user_service.js"></script>
+    <!--<script type="text/javascript" src="/scripts/services/EmployeesSrv.js"></script>-->
+    <!--<script type="text/javascript" src="/scripts/services/devicesSrv.js"></script>-->
+    <script type="text/javascript" src="/pages/gatekeeper/gatekeeper_service.js"></script>
+    <script type="text/javascript" src="/pages/pichangas/pichangas_service.js"></script>
+    <script type="text/javascript" src="/pages/places/places_service.js"></script>
+
+
+
+    <!--Controllers-->
+
+
+    <script type="text/javascript" src="/pages/pichanga/pichanga_ctrl.js"></script>
+    <script type="text/javascript" src="/pages/users/users.js"></script>
+    <script type="text/javascript" src="/pages/user_explorer/user.js"></script>
+    <script type="text/javascript" src="/pages/crews/crews.js"></script>
+    <script type="text/javascript" src="/pages/crew/crew.js"></script>
+    <script type="text/javascript" src="/pages/pichangas/pichangas_ctrl.js"></script>
+    <script type="text/javascript" src="/pages/places/places_ctrl.js"></script>
+
+
+    <!--<script type="text/javascript" src="/scripts/controllers/SessionsCtrl.js"></script>-->
+    <!--<script type="text/javascript" src="/scripts/controllers/ActivityCtrl.js"></script>-->
+
+    <!--<script type="text/javascript" src="/scripts/controllers/CustomersCtrl.js"></script>-->
+    <!--<script type="text/javascript" src="/scripts/controllers/EmployeesCtrl.js"></script>-->
+    <!--<script type="text/javascript" src="/scripts/controllers/DevicesCtrl.js"></script>-->
+
+    <script type="text/javascript" src="/pages/gatekeeper/gatekeeper_ctrl.js"></script>
+    <!--<script type="text/javascript" src="/scripts/controllers/PrintTemplatesCtrl.js"></script>-->
+
+
+    <!-- endbuild -->
+
+
+  </body>
+</html>

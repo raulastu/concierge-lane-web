@@ -1,0 +1,32 @@
+<div class="box">
+    <form id="userSecurityForm" class="form-horizontal">
+        <div class="alert alert-block alert-info" ng-show="msjshow">
+            <p>
+                Se guard&oacute; correctamente.
+            </p>
+        </div>
+        <div class="row">
+            <div id="acct-name-row" class="span5">
+                <fieldset>
+                    <legend>&nbsp;&nbsp; Categor&iacute;a</legend><br>
+                    <div class="control-group ">
+                        <label class="control-label">Nombre:</label>
+                        <div class="controls">
+                            <input ng-model="category.category_name" name="name" class="span4" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Descripci&oacute;n: </label>
+                        <div class="controls">
+                            <input ng-model="category.description" name="description" class="span4" type="text">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div id="submit-actions" class="form-actions">
+            <button ng-click="save(category)" class="btn btn-primary">Guardar</button>
+            <a href="#category" class="btn">Salir</a>
+        </div>
+    </form>
+</div>

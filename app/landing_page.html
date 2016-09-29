@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="LoginModule">
+  <head>
+    <meta charset="utf-8">
+    <title>.:Login:.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="flat/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="flat/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="flat/assets/css/demo.css" rel="stylesheet">
+  </head>
+  <body>
+      <div class="container" ng-controller="LoginController">
+          <div class="demo-headline" style="padding-bottom:50px">
+            <h1 class="demo-logo">
+              HuahFood
+              <small>Comidaaaa :b</small>
+            </h1>
+          </div> <!-- /demo-headline -->
+          <div class="login">
+            <div class="login-screen" style="{{config_page.padding_top}}">
+               <div id="form-login" class="" ng-show="sh_login">
+                  <div ng-hide="sh_loading" class="login-icon">
+                    <img src="flat/img/login/iconhf.png" alt="Welcome to HuahFood" />
+                    <h4>Ingrese a <small>HuahFood</small></h4>
+                  </div>
+                  <div ng-show="sh_loading" class="login-icon">
+                        <img src="images/loader.gif"/>
+                  </div>
+                  <div class="login-form">
+                    <label ng-show="sh_alert" style="color:#CC2323;text-align:center">Datos incorrectos!</label>
+                    <div class="form-group">
+                      <input type="text" ng-model="User.user_name" class="form-control login-field" value="" placeholder="E-mail" id="login-name" />
+                      <label class="login-field-icon fui-mail" for="login-name"></label>
+                    </div>
+                    <div class="form-group">
+                      <input ng-model="User.user_password" type="password" class="form-control login-field" value="" placeholder="Contrase&ntilde;a" id="login-pass" />
+                      <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" ng-click="login(User)">Ingresar</button>
+                    <a class="login-link" style="cursor:pointer" ng-click="toRegister()"><span class="fui-plus">&nbsp;</span>Crear Nueva Cuenta</a>
+                  </div>                   
+               </div>
+               <div id="form-register" ng-show="sh_register">
+                  <div ng-hide="sh_loading" class="login-icon">
+                    <img src="flat/img/login/iconhf.png" alt="Welcome to HuahFood" />
+                    <h4>Registre su <small>Restaurant</small></h4>
+                  </div>
+                  <div ng-show="sh_loading" class="login-icon">
+                        <img src="images/loader.gif"/>
+                  </div>
+                  <div class="login-form">
+                    <div class="form-group">
+                      <input type="text" ng-model="User.first_name" class="form-control login-field" value="" placeholder="Nombre" id="chain-first_name" />
+                      <label class="login-field-icon fui-user" for="chain-first_name"></label>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" ng-model="User.last_name" class="form-control login-field" value="" placeholder="Apellido" id="chain-last_name" />
+                      <label class="login-field-icon fui-user" for="chain-name"></label>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" ng-model="User.chain_name" class="form-control login-field" value="" placeholder="Restaurante" id="chain-name" />
+                      <label class="login-field-icon fui-home" for="chain-last_name"></label>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" ng-model="User.email" class="form-control login-field" value="" placeholder="E-mail" id="login-name" />
+                      <label class="login-field-icon fui-mail" for="login-name"></label>
+                    </div>
+                    <div class="form-group">
+                      <input ng-model="User.password" type="password" class="form-control login-field" value="" placeholder="contrase&ntilde;a" id="login-pass" />
+                      <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+                    <button class="btn btn-primary btn-lg btn-block" ng-click="register(User)">Registrar</button>
+                      <a class="login-link" style="cursor:pointer" ng-click="toLogin()"><span class="fui-arrow-left">&nbsp;</span>Volver a Login</a>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+    <script src="flat/dist/js/vendor/jquery.min.js"></script>
+    <script src="flat/dist/js/flat-ui.min.js"></script>
+    <script src="flat/assets/js/application.js"></script>
+    <script type="text/javascript" src="js/angular/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular/webstorage/angular-webstorage.js"></script>
+    <script type="text/javascript" src="js/angular/webstorage/angular-webstorage-utils.js"></script>
+    <script type="text/javascript" src="js/angular/angular-animate.js"></script>
+    <script type="text/javascript" src="js/app/properties.js"></script>
+    <script type="text/javascript" src="js/app/login/config.js"></script>
+  </body>
+</html>

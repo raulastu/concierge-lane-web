@@ -1,0 +1,92 @@
+<style media="print">
+    @page {
+        margin:0cm;
+        height: 20px;
+    }
+    @media print {
+        body {
+            width: 100% !important;
+            height: 20 !important;
+            margin: 0 !important;
+        }
+        #area-print{
+            display: block;
+        }
+        .info-print div{
+            padding-bottom: 13px;
+        }
+        .info-print{
+            color: #000;
+            font-size: 8px;
+        }
+    }
+</style>
+
+
+
+<div class="container" style="">
+    <h4>Plantilas de Impresi&oacute;n <small>Edite sus plantillas para imprimir lo que su negocio requiera </small> </h4>
+    <div class="col-sm-2" style="padding-right: 0px;   padding-left: 0px;">
+        <table id="reservation-table" class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th colspan="1">
+                    <input type="text" ng-model="search.name" id="frm-search"
+                           placeholder="Buscar Plantilla"  class="form-control input-sm">
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="template in printTemplates | filter:search">
+
+                <td style="font-size: 18px;"
+                    ng-click="setSelectedTemplate(template);" >
+                    <div >
+                        <span style="font-size: large;">{{template.name}} </span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-10" style="padding-right: 0px;   padding-left: 0px;" ng-show="selectedTemplate">
+
+        <div class="row demo-samples">
+            <div class="col-xs-12">
+                <div class="tile tile-hot">
+                    <h3>{{selectedTemplate.name}}</h3>
+                    <div>
+                        <div style="padding:5px;">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    Diseño <button type="button" ng-click="savePrintTemplate(selectedTemplate)" class="btn btn-success">Guardar</button>
+                                    </br>
+                                    <textarea ng-model="selectedTemplate.value"
+                                              ng-change="selectedTemplatePreview = getPopulatedPrint(selectedTemplate, branch, sampleOrder)"
+                                              style='font-size: 12px; width: 545px; font-family: monospace, serif;' cols="260" rows="40" ></textarea>
+                                </div>
+                                <div class="col-xs-6">
+                                    Previsualización
+                                    <button class="btn btn-success btn-small" ng-click="printPopulatedPrint(selectedTemplatePreview)">
+                                        <span class="fui-credit-card"></span>
+                                    Print
+                                    </button>
+                                    <div id="area-print">
+                                        <div class="info-print">
+                                            <textarea style='font-size: 12px; width: 545px; font-family: monospace, serif;'
+                                                      cols="120" rows="50" ng-model="selectedTemplatePreview"></textarea>
+                                        </div>
+                                    </div>
+                                    </br>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

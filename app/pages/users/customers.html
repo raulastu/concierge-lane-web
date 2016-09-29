@@ -1,0 +1,60 @@
+<div class="box-content box-table">
+        <table id="sample-table" class="table table-hover table-bordered tablesorter" width="100%">
+            <col width="30%">
+            <col width="30%">
+            <col width="20%">
+            <col width="20%">
+            <thead>
+                <tr>
+                    <th>customer_id</th>
+                    <th style="text-align:center"> First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Status</th>
+                    <th>Address</th>
+                    <th style="text-align:center">Impersonate</th>
+                    <th style="text-align:center">Delete</th>
+                    <th style="text-align:center">Activate</th>
+                    <th style="text-align:center">Mail Activation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers">
+                    <td>{{customer.user_id}}</td>
+                    <td>{{customer.first_name}}</td>
+                    <td>{{customer.last_name}}</td>
+                    <td>{{customer.email}}</td>
+                    <td>{{customer.password}}</td>
+                    <td>{{customer.status}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>
+                        <a href="" ng-click="updEmployee(dataE.employee_id)" class="btn btn-small btn-info">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-danger" ng-click="deleteUser(user)">
+                                delete
+                            </a>
+                        </div>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-success" ng-click="activate(user)">
+                                activate (2)
+                            </a>
+                        </div>
+                    </td>
+                    <td class="td-actions" style="text-align:center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="" class="btn btn-small btn-success" ng-click="sendActivationEmail(user)">
+                                send act mail
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>

@@ -1,0 +1,54 @@
+<div class="box">
+    <form id="userSecurityForm" class="form-horizontal">
+        <div class="alert alert-block alert-info" ng-show="msjshow">
+            <p>
+                Se guard&oacute; correctamente.
+            </p>
+        </div>
+        <div class="row">
+            <div id="acct-name-row" class="span5">
+                <fieldset>
+                    <legend>&nbsp;&nbsp; Item</legend><br>
+                    <div class="control-group ">
+                        <label class="control-label">Nombre:</label>
+                        <div class="controls">
+                            <input ng-model="item.item_name" name="name" class="span4" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Precio: </label>
+                        <div class="controls">
+                            <input ng-model="item.price" name="description" class="span4" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <label class="control-label">En Menu:</label>
+                        <div class="controls">
+                            <input type="checkbox" ng-model="item.inmenu" ng-true-value="'1'" ng-false-value="'0'">
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <label class="control-label">Categoria:</label>
+                        <div class="controls">
+                            <select ng-model="item_category_id"
+                                    ng-options="dataC.category_name for dataC in Category track by dataC.item_category_id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group ">
+                        <label class="control-label">Restaurant:</label>
+                        <div class="controls">
+                            <select ng-model="branch_id"
+                                    ng-options="dataB.branch_name for dataB in Branch track by dataB.branch_id">
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div id="submit-actions" class="form-actions">
+            <button ng-click="save(item)" class="btn btn-primary">Guardar</button>
+            <a href="#item" class="btn">Salir</a>
+        </div>
+    </form>
+</div>

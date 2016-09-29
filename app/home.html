@@ -1,0 +1,517 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="AdminModuleHF">
+    <head>
+        <title>HuaHFood</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+        <link href="landing/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" type="text/css" href="landing/css/imgeffect.css" />
+        <script src="landing/js/jquery.min.js"></script>
+        <!-- start gallery Script -->
+        <script type="text/javascript" src="landing/js/jquery.easing.min.js"></script>	
+        <script type="text/javascript" src="landing/js/jquery.mixitup.min.js"></script>
+        <script type="text/javascript">
+                $(function() {
+                var filterList = {
+                    init: function() {
+                        $('#portfoliolist').mixitup({
+                            targetSelector: '.portfolio',
+                            filterSelector: '.filter',
+                            effects: ['fade'],
+                            easing: 'snap',
+                            onMixEnd: filterList.hoverEffect()
+                        });
+                    },
+                    hoverEffect: function() {
+                        $('#portfoliolist .portfolio').hover(
+                            function() {
+                                $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                                $(this).find('img').stop().animate({top: 0}, 500, 'easeOutQuad');
+                            },
+                            function() {
+                                $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeInQuad');
+                                $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');
+                            }
+                        );
+                    }
+                };
+                filterList.init();
+            });
+        </script>
+        <!-- Add fancyBox main JS and CSS files -->
+        <script src="landing/js/jquery.magnific-popup.js" type="text/javascript"></script>
+        <link href="landing/css/magnific-popup.css" rel="stylesheet" type="text/css">
+        <script>
+            $(document).ready(function() {
+                $('.popup-with-zoom-anim').click(function(){
+                    var cl=$(this).parent().parent();
+                    var cs=$(cl).css("background-image");
+                    var url=cs.replace("url(","").replace(")","");
+                    var ch=$(this).children("h3").html();
+                    $(".pop_up img").attr("src",url);
+                    $(".pop_up h2").html(ch);
+                });
+                $('.popup-with-zoom-anim').magnificPopup({
+                    type: 'inline',
+                    fixedContentPos: false,
+                    fixedBgPos: true,
+                    overflowY: 'auto',
+                    closeBtnInside: true,
+                    preloader: false,
+                    midClick: true,
+                    removalDelay: 300,
+                    mainClass: 'my-mfp-zoom-in'
+                });
+            });
+        </script>
+        <script type="text/javascript" src="landing/js/move-top.js"></script>
+        <script type="text/javascript" src="landing/js/easing.js"></script>
+        <!----end gallery----------->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1200);
+                });
+            });
+        </script>
+    </head>
+    <body ng-controller="LoginController">
+        <!----start-header----------->
+        <div class="header_bg">
+            <div class="wrap">
+                <div class="header">
+                    <!--------start-logo------>
+                    <div class="logo">
+                        <a href="index.php">
+                        <img src="landing/images/huahfood.png" height="70px" width="157px"/></a>
+                    </div>	
+                    <!--------end-logo--------->
+                    <!----start-nav-------->	
+                    <div class="nav">
+                        <ul>
+                            <li class="active"><a href="#home" class="scroll">Inicio</a></li>
+                            <li><a href="#gallery" class="scroll">Galer&iacute;a</a></li>
+                            <li><a href="#registry" ng-click="toRegister()" class="scroll">Registro</a></li>
+                            <li><a href="#registry" ng-click="toLogin()" class="scroll">Login</a></li>
+                            <div class="clear"> </div>
+                        </ul>
+                    </div>
+                    <!-----end-nav-------->
+                    <div class="clear"> </div>
+                </div>
+            </div>
+        </div>
+        <!------end-header------------>
+        <!-- start slider -->
+        <div class="slider_bg">
+            <div class="wrap">
+                <div style="position: relative;float: right;padding: 10px 0px">
+                    <img src="landing/images/bg_1.jpg" width="300" height="500" style="border: 2px solid #ffffff;border-radius: 5px"/>
+                </div>
+                <!---start-da-slider----->
+                <div class="da-slide" style="width: 70%">
+                    <h2><img style="position: relative;margin-bottom: -11px;" src="landing/images/logo.png" height="65px" width="60px"/>uahfood <span>para restaurantes</span></h2>
+                    <p>Administre y controle su restaurant de una forma muy fácil.</p>
+                    <a href="#registry" class="da-link scroll" style="font-size: 12px;width: 23%;">Ingrese a su restaurante<br><span style="font-size: 18px;">aqu&iacute;</span></a>
+                    <a href="#gallery" class="scroll"><span class="da-img"> </span> </a>
+                </div>
+                <!---//End-da-slider----->
+            </div>
+        </div>
+        <!-----end-slider-------->
+        <!--start portfolio------>
+        <div class="wrap" id="gallery">
+            <div class="main">
+                <!-- start gallery  -->
+                <div class="gallery1">
+                    <!--start-mfp -->	
+                    <div id="small-dialog1" class="mfp-hide">
+                        <div class="pop_up" style="text-align: center">
+                            <h2>Imagen #001</h2>
+                            <img src="landing/images/own/b0.jpg" alt="" height="400px" width="800px"/>
+                            <p class="para">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        </div>
+                    </div>
+                    <!--end-mfp -->
+                    <!---start-content----->
+                    <div class="gallery">
+                        <div class="clear"> </div>
+                        <div class="container">
+                            <h2>Galer&iacute;a</h2>
+                            <p>Nuestra Aplicacion.</p>
+                            <ul id="filters" class="clearfix">
+                                <li><span class="filter active" data-filter="app card icon logo web">Restaurantes</span></li>
+                                <li><span class="filter" data-filter="app web">Detalles</span></li>
+                                <li><span class="filter" data-filter="icon web card">Opciones</span></li>
+                                <li><span class="filter" data-filter="web app icon card">Extras</span></li>
+                            </ul>
+                            <div id="portfoliolist">
+                                <div class="portfolio logo" data-cat="logo">
+                                    <div class="portfolio-wrapper">				
+                                        <a class="popup-with-zoom-anim" href="#small-dialog1" aux="1">
+                                            <ul class="ch-grid">
+                                                <li>
+                                                    <div class="ch-item ch-img-1">
+                                                        <div class="ch-info">
+                                                            <img src="landing/images/zoom-white.png"/>
+                                                            <h3>Iniciando Aplicacion</h3>
+                                                            <p><a href="#"></a></p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portfolio app" data-cat="app">
+                                    <div class="portfolio-wrapper">			
+                                        <a class="popup-with-zoom-anim" href="#small-dialog1" aux="2">
+                                            <ul class="ch-grid">
+                                                <li>
+                                                    <div class="ch-item ch-img-2">
+                                                        <div class="ch-info">
+                                                            <img src="landing/images/zoom-white.png"/>
+                                                            <h3>Ingreso de Usuario</h3>
+                                                            <p><a href="#"></a></p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>	
+                                <div class="hide">	
+                                    <div class="portfolio web" data-cat="web">
+                                        <div class="portfolio-wrapper">						
+                                            <a class="popup-with-zoom-anim" href="#small-dialog1" aux="3">
+                                                <ul class="ch-grid">
+                                                    <li>
+                                                        <div class="ch-item ch-img-3">
+                                                            <div class="ch-info">
+                                                                <img src="landing/images/zoom-white.png"/>
+                                                                <h3>Cargando los datos del restaurant</h3>
+                                                                <p><a href="#"></a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="portfolio card" data-cat="card">
+                                    <div class="portfolio-wrapper">			
+                                        <a class="popup-with-zoom-anim" href="#small-dialog1" aux="4">
+                                            <ul class="ch-grid">
+                                                <li>
+                                                    <div class="ch-item ch-img-4">
+                                                        <div class="ch-info">
+                                                            <img src="landing/images/zoom-white.png"/>
+                                                            <h3>Pantalla principal de la aplicacion</h3>
+                                                            <p><a href="#"></a></p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="hide">	
+                                    <div class="portfolio app" data-cat="app">
+                                        <div class="portfolio-wrapper">
+                                            <a class="popup-with-zoom-anim" href="#small-dialog1" aux="5">
+                                                <ul class="ch-grid">
+                                                    <li>
+                                                        <div class="ch-item ch-img-5">
+                                                            <div class="ch-info">
+                                                                <img src="landing/images/zoom-white.png"/>
+                                                                <h3>Mostrando las categor&iacute;as</h3>
+                                                                <p><a href="#"></a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div class="hide">
+                                    <div class="portfolio card" data-cat="card">
+                                        <div class="portfolio-wrapper">			
+                                            <a class="popup-with-zoom-anim" href="#small-dialog1" aux="6">
+                                                <ul class="ch-grid">
+                                                    <li>
+                                                        <div class="ch-item ch-img-6">
+                                                            <div class="ch-info">
+                                                                <img src="landing/images/zoom-white.png"/>
+                                                                <h3>Agregar notas a los pedidos</h3>
+                                                                <p><a href="#"></a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div>
+                                    <div class="portfolio card" data-cat="card">
+                                        <div class="portfolio-wrapper">			
+                                            <a class="popup-with-zoom-anim" href="#small-dialog1" aux="7">
+                                                <ul class="ch-grid">
+                                                    <li>
+                                                        <div class="ch-item ch-img-7">
+                                                            <div class="ch-info">
+                                                                <img src="landing/images/zoom-white.png"/>
+                                                                <h3>Registrar el numero de mesa antes de enviar el pedido</h3>
+                                                                <p><a href="#"></a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>	
+                                </div>
+                                <div>
+                                    <div class="portfolio logo" data-cat="logo" id="hide">
+                                        <div class="portfolio-wrapper">			
+                                            <a class="popup-with-zoom-anim" href="#small-dialog1" aux="8">
+                                                <ul class="ch-grid">
+                                                    <li>
+                                                        <div class="ch-item ch-img-8">
+                                                            <div class="ch-info">
+                                                                <img src="landing/images/zoom-white.png"/>
+                                                                <h3>Mostrando los pedidos enviados</h3>
+                                                                <p><a href="#"></a></p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </a>
+                                        </div>
+                                    </div>																																							
+                                </div>
+                            </div>
+                        </div><!-- container -->
+                        <script type="text/javascript" src="landing/js/fliplightbox.min.js"></script>
+                        <script type="text/javascript">$('body').flipLightBox()</script>
+                        <div class="clear"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---End-gallery----->
+        <!-----start-about-------->
+        <div class="about" id="registry">
+            <div class="wrap">
+                
+              
+                <style>
+                    .login {
+                        position: relative;
+                        color: #fff;
+                        background-size: 940px 778px;
+                    }
+                    .login-screen {
+/*                        min-height: 473px;*/
+                        padding: 123px 199px 27px 306px;
+                        background-color: #1abc9c;
+                    }
+                    .login-icon {
+                        position: absolute;
+                        top: 100px;
+                        left: 200px;
+                        width: 96px;
+                    }
+                    .login-form {
+                        position: relative;
+                        padding: 45px 70px 15px;
+                        background-color: #edeff1;
+                        border-radius: 6px;
+                    }
+                    .form-group {
+                        position: relative;
+                        margin-bottom: 20px;
+                    }
+                    .login-form .login-field {
+                        font-size: 17px;
+                        text-indent: 3px;
+                        border-color: transparent;
+                    }
+                    .form-control, .select2-search input[type="text"] {
+                        height: 42px;
+                        padding: 8px 12px;
+                        font-family: "Lato", Helvetica, Arial, sans-serif;
+                        font-size: 15px;
+                        line-height: 1.467;
+                        color: #34495e;
+                        border: 2px solid #bdc3c7;
+                        border-radius: 6px;
+                        box-shadow: none;
+                        -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+                        transition: border .25s linear, color .25s linear, background-color .25s linear;
+                    }
+                    .form-control {
+                        display: block;
+                        width: 100%;
+                        height: 34px;
+                        padding: 6px 12px;
+                        font-size: 14px;
+                        line-height: 1.42857143;
+                        color: #555;
+                        background-color: #fff;
+                        background-image: none;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+                        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                    }
+                    .login-form .login-field-icon {
+                        position: absolute;
+                        top: 3px;
+                        right: 15px;
+                        font-size: 16px;
+                        color: #bfc9ca;
+                        -webkit-transition: all .25s;
+                        transition: all .25s;
+                    }
+                    
+                    .btn-lg, .btn-group-lg > .btn {
+                        padding: 10px 19px;
+                        font-size: 17px;
+                        line-height: 1.471;
+                        border-radius: 6px;
+                    }
+                    .btn-primary {
+                        color: #fff;
+                        background-color: #1abc9c;
+                    }
+                    .btn {
+                        padding: 10px 15px;
+                        font-size: 15px;
+                        font-weight: normal;
+                        line-height: 1.4;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
+                        transition: border .25s linear, color .25s linear, background-color .25s linear;
+                        -webkit-font-smoothing: subpixel-antialiased;
+                    }
+                    .login-link {
+                        display: block;
+                        margin-top: 15px;
+                        font-size: 13px;
+                        color: #bfc9ca;
+                        text-align: center;
+                    }
+                    
+                </style>
+                
+                
+                
+                
+                <div class="login">
+                        <H2>ACCESO AL SISTEMA</H2>
+                    <div class="login-screen" style="{{config_page.padding_top}}">
+                       <div id="form-login" class="" ng-show="sh_login">
+                          <div ng-hide="sh_loading" class="login-icon">
+                            <img src="flat/img/login/iconhf.png" alt="Welcome to HuahFood" />
+                            <h4>Ingrese a <small>HuahFood</small></h4>
+                          </div>
+                          <div ng-show="sh_loading" class="login-icon">
+                                <img src="images/loading.gif"/>
+                          </div>
+                          <div class="login-form">
+                            <label ng-show="sh_alert" style="color:#CC2323;text-align:center;padding:5px;">Datos incorrectos!</label>
+                            <div class="form-group">
+                              <input type="text" ng-model="User.user_name" class="form-control login-field" value="" placeholder="E-mail" id="login-name" />
+                              <label class="login-field-icon fui-mail" for="login-name"></label>
+                            </div>
+                            <div class="form-group">
+                              <input ng-model="User.user_password" type="password" class="form-control login-field" value="" placeholder="Contrase&ntilde;a" id="login-pass" />
+                              <label class="login-field-icon fui-lock" for="login-pass"></label>
+                            </div>
+                            <button class="btn btn-primary btn-lg btn-block" ng-click="login(User)">Ingresar</button>
+                            <a class="login-link" style="cursor:pointer" ng-click="toRegister()"><span class="fui-plus">&nbsp;</span>Crear Nueva Cuenta</a>
+                          </div>                   
+                       </div>
+                       <div id="form-register" ng-show="sh_register">
+                          <div ng-hide="sh_loading" class="login-icon">
+                            <img src="flat/img/login/iconhf.png" alt="Welcome to HuahFood" />
+                            <h4>Registre su <small>Restaurant</small></h4>
+                          </div>
+                          <div ng-show="sh_loading" class="login-icon">
+                                <img src="images/loading.gif"/>
+                          </div>
+                          <div class="login-form">
+                            <div class="form-group">
+                              <input type="text" ng-model="User.first_name" class="form-control login-field" value="" placeholder="Nombre" id="chain-first_name" />
+                              <label class="login-field-icon fui-user" for="chain-first_name"></label>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" ng-model="User.last_name" class="form-control login-field" value="" placeholder="Apellidos" id="chain-last_name" />
+                              <label class="login-field-icon fui-user" for="chain-name"></label>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" ng-model="User.chain_name" class="form-control login-field" value="" placeholder="Nombre del Restaurante" id="chain-name" />
+                              <label class="login-field-icon fui-home" for="chain-last_name"></label>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" ng-model="User.email" class="form-control login-field" value="" placeholder="E-mail" id="login-name" />
+                              <label class="login-field-icon fui-mail" for="login-name"></label>
+                            </div>
+                            <div class="form-group">
+                              <input ng-model="User.password" type="password" class="form-control login-field" value="" placeholder="contrase&ntilde;a" id="login-pass" />
+                              <label class="login-field-icon fui-lock" for="login-pass"></label>
+                            </div>
+                            <button class="btn btn-primary btn-lg btn-block" ng-click="register(User)">Registrar</button>
+                              <a class="login-link" style="cursor:pointer" ng-click="toLogin()"><span class="fui-arrow-left">&nbsp;</span>Volver a Login</a>
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+                
+                
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="wrap">
+                <div class="copy" style="color: #303441">
+                    <p class="copy" style="color: #303441">&#169 2014 Template by  <a href="http://w3layouts.com" target="_blank" style="color: #303441">w3layouts</a> </p>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        var defaults = {
+                            containerID: 'toTop', // fading element id
+                            containerHoverID: 'toTopHover', // fading element hover id
+                            scrollSpeed: 1200,
+                            easingType: 'linear'
+                        };
+                        $().UItoTop({easingType: 'easeOutQuart'});
+                    });
+                </script>
+                <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
+                <script src="landing/js/jquery.scrollTo.js"></script>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="scripts/vendor/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular-route.js"></script>
+    <script type="text/javascript" src="scripts/vendor/angular-cookies.js"></script>
+    <script type="text/javascript" src="scripts/vendor/webstorage/angular-webstorage.js"></script>
+    <script type="text/javascript" src="scripts/vendor/webstorage/angular-webstorage-utils.js"></script>
+    <script type="text/javascript" src="scripts/properties.js"></script>
+    
+    
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers/login.js"></script>
+    </body>
+</html>
